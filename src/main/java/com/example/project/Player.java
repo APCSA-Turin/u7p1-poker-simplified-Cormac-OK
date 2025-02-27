@@ -50,7 +50,17 @@ public class Player{
     }
 
     public ArrayList<Integer> findSuitFrequency(){
-        return new ArrayList<>(); 
+        ArrayList<Integer> frequencies = new ArrayList<Integer>();
+        for (int i = 0; i < 4; i++){
+            String suit = Utility.getSuits()[i];
+            frequencies.add(0);
+            for(Card card : allCards){
+                if(card.getSuit().equals(suit)){
+                    frequencies.set(i, frequencies.get(i) + 1);
+                }
+            }
+        }
+        return frequencies; 
     }
 
    

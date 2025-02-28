@@ -16,17 +16,37 @@ public class Player{
     public ArrayList<Card> getAllCards(){return allCards;}
 
     public void addCard(Card c){
-        
+        hand.add(c);
     }
 
     public String playHand(ArrayList<Card> communityCards){      
+        allCards = new ArrayList<>();
+        for(Card c : hand){
+            allCards.add(c);
+        }
+        for(Card c : communityCards){
+            allCards.add(c);
+        }
+
+        System.out.println(findRankingFrequency());
+        
         return "Nothing";
     }
 
     public void sortAllCards(){} 
 
     public ArrayList<Integer> findRankingFrequency(){
-        return new ArrayList<>(); 
+        ArrayList<Integer> frequencies = new ArrayList<Integer>();
+        for (int i = 0; i < 13; i++){
+            String rank = Utility.getRanks()[i];
+            frequencies.add(0);
+            for(Card card : allCards){
+                if(card.getRank().equals(rank)){
+                    frequencies.set(i, frequencies.get(i) + 1);
+                }
+            }
+        }
+        return frequencies; 
     }
 
     public ArrayList<Integer> findSuitFrequency(){

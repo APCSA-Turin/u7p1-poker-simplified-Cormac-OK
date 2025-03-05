@@ -180,8 +180,6 @@ public class Player{
         return count;
     }
 
-    //TODO: Set highestSet back to private
-
     /**
      * Returns the rank of the highest set of size size
      * @param size The size of the set to search for
